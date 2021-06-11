@@ -9,9 +9,9 @@ a Honeycomb.io exporter for Beeline telemetry
 ```elixir
 def deps do
   [
-    {:beeline_honeycomb, "~> 1.0", organization: "cuatro"}
+    {:beeline_honeycomb, "~> 1.0"}
   ]
 end
 ```
 
-Check out the docs here: https://cuatro.hexdocs.pm/beeline_honeycomb
+Check out the docs here: https://hexdocs.pm/beeline_honeycomb
