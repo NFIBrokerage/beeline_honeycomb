@@ -44,11 +44,14 @@ defmodule BeelineHoneycomb.MixProject do
 
   defp deps do
     [
+      {:opencensus_honeycomb, "~> 0.3"},
+      {:beeline, "~> 0.1", optional: true},
       # docs
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       # test
-      {:bless, "~> 1.0"},
-      {:convene, "~> 0.2", organization: "cuatro", only: [:dev, :test]},
+      {:bless, "~> 1.0", only: :test},
+      {:mox, "~> 1.0", only: :test},
+      {:credo, "~> 1.0", only: :test},
       {:excoveralls, "~> 0.7", only: :test}
     ]
   end
@@ -57,8 +60,7 @@ defmodule BeelineHoneycomb.MixProject do
     [
       name: "beeline_honeycomb",
       files: ~w(lib .formatter.exs mix.exs README.md .version),
-      licenses: [],
-      organization: "cuatro",
+      licenses: ["Apache-2.0"],
       links: %{
         "GitHub" => @source_url,
         "Changelog" => @source_url <> "/blobs/main/CHANGELOG.md"
