@@ -44,7 +44,7 @@ defmodule BeelineHoneycomb.MixProject do
 
   defp deps do
     [
-      {:beeline, path: "../beline", optional: true},
+      {:beeline, path: "../beeline", optional: true},
       {:opencensus_honeycomb, "~> 0.1"},
       # docs
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},

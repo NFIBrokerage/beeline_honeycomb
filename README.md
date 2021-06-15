@@ -9,7 +9,7 @@ a Honeycomb.io exporter for Beeline telemetry
 ```elixir
 def deps do
   [
-    {:beeline_honeycomb, "~> 1.0"}
+    {:beeline_honeycomb, "~> 0.1"}
   ]
 end
 ```
