@@ -56,6 +56,17 @@ defmodule Beeline.Honeycomb do
 
   @doc false
   def handle_event(_event, measurement, metadata, state) do
+    previous_local_event_number =
+      case metadata[:prior_position] do
+        # coveralls-ignore-start
+        n when n >= 0 ->
+          n
+
+        _ ->
+          nil
+          # coveralls-ignore-stop
+      end
+
     event = %Opencensus.Honeycomb.Event{
       time: metadata[:measurement_time],
       samplerate: state[:samplerate] || 1,
@@ -64,13 +75,13 @@ defmodule Beeline.Honeycomb do
         hostname: metadata[:hostname],
         interval: metadata[:interval],
         drift: metadata[:drift],
-        previous_local_event_number: metadata[:prior_position],
+        previous_local_event_number: previous_local_event_number,
         local_event_number: metadata[:current_position],
         latest_event_number: metadata[:head_position],
         listener_is_alive: metadata[:alive?],
         listener_has_moved:
           metadata[:current_position] != metadata[:prior_position],
-        delta: metadata[:current_position] - metadata[:prior_position],
+        delta: metadata[:head_position] - metadata[:current_position],
         durationMs:
           System.convert_time_unit(
             measurement.duration,

@@ -38,7 +38,7 @@ defmodule Beeline.HoneycombTest do
     assert event.data.delta == 0
     assert event.data.latest_event_number == -1
     assert event.data.local_event_number == -1
-    assert event.data.previous_local_event_number == -1
+    assert event.data.previous_local_event_number == nil
     assert event.data.listener_has_moved == false
     assert event.data.listener_is_alive == true
   end

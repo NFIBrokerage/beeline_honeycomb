@@ -6,6 +6,22 @@ The format is based on [Keep a
 Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 0.2.0 - 2021-07-06
+
+### Changed
+
+- `delta` now refers to the difference between the latest event number and the
+  local event number, rather than the difference between the local event number
+  and the previous local event number
+- `previous_local_event_number` is now `nil` when the previous local event
+  number is not greater than or equal to zero
+
+## 0.1.0 - 2021-06-15
+
+### Added
+
+- Initial implementation published
+
 ## 0.0.0 - 2021-06-11
 
 ### Added
