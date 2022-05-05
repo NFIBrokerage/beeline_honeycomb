@@ -87,7 +87,8 @@ defmodule Beeline.Honeycomb do
             measurement.duration,
             :native,
             :microsecond
-          ) / 1_000
+          ) / 1_000,
+        auto_subscribe: metadata[:auto_subscribe]
       }
     }
 
