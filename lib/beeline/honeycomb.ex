@@ -33,7 +33,7 @@ defmodule Beeline.Honeycomb do
 
   use Task
 
-  @sender Application.get_env(
+  @sender Application.compile_env(
             :beeline_honeycomb,
             :honeycomb_sender,
             Opencensus.Honeycomb.Sender
